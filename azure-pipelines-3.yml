@@ -8,6 +8,13 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
+  name: Test Agent
+  demands:
+  - agent.name -equals Laptop-V663C33R-02
+  - msbuild
+  - visualstudio
+
+  timeoutInMinutes: 5
 
 steps:
 - task: NodeTool@0
