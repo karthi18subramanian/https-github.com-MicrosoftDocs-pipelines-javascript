@@ -29,16 +29,12 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- task: PublishSymbols@2
-  displayName: 'Publish symbols path'
+
+- task: ArchiveFiles@2
+  displayName: 'Archive files'
   inputs:
-    SearchPattern: '**\bin\**\*.pdb'
-    PublishSymbols: false
-  continueOnError: true
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+    includeRootFolder: false
 
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact'
-  inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
-    ArtifactName: '$(Parameters.ArtifactName)'
-  condition: succeededOrFailed()
+  displayName: 'Publish artifacts: drop'
