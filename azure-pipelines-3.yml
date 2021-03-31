@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
   name: Test Agent
   demands:
-  - agent.name -equals Laptop-V663C33R-02
+  - agent.name -equals Laptop-V66C33R-01
   - msbuild
   - visualstudio
 
